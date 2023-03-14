@@ -19,3 +19,16 @@ C:\Users\Radiance\source\repos\ATMA\obj\Debug\View\PageATM.baml
 C:\Users\Radiance\source\repos\ATMA\obj\Debug\View\PageMAP.baml
 C:\Users\Radiance\source\repos\ATMA\obj\Debug\View\PageConnectionATM.g.cs
 C:\Users\Radiance\source\repos\ATMA\obj\Debug\View\PageConnectionATM.baml
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\MaterialDesignColors.dll
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Radiance\source\repos\ATMA\obj\Debug\ATMA.csproj.CopyComplete
+C:\Users\Radiance\source\repos\ATMA\obj\Debug\View\PageATMView.g.cs
+C:\Users\Radiance\source\repos\ATMA\obj\Debug\View\PageATMView.baml
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\Radiance\source\repos\ATMA\bin\Debug\Microsoft.Maps.MapControl.WPF.xml

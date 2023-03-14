@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Radiance\source\repos\ATMA\App.xaml
-41187193424
+51355862967
 
-9-1066346089
-13-1505183044
-MainWindow.xaml;View\PageATM.xaml;View\PageConnectionATM.xaml;View\PageMAP.xaml;
+101847959477
+171554715568
+MainWindow.xaml;View\PageATM.xaml;View\PageATMView.xaml;View\PageConnectionATM.xaml;View\PageMAP.xaml;
 
 False
 

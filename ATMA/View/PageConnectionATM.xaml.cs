@@ -23,6 +23,7 @@ namespace ATMA.View
         public PageConnectionATM()
         {
             InitializeComponent();
+            sector.ItemsSource = Model.MainModel.getSector();
             Refresh();
         }
 
@@ -40,6 +41,31 @@ namespace ATMA.View
         private void back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageATM());
+        }
+
+        private void clean_Click(object sender, RoutedEventArgs e)
+        {
+            sector.SelectedItem = null;
+        }
+
+        private void cleanS_Click(object sender, RoutedEventArgs e)
+        {
+            search.Text = "";
+        }
+
+        private void search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listATM.ItemsSource = Model.MainModel.SearchConnectionALL(search.Text + "%", sector.SelectedItem);
+        }
+
+        private void sector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listATM.ItemsSource = Model.MainModel.SearchConnectionALL(search.Text + "%", sector.SelectedItem);
+        }
+
+        private void goMap_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageMAP());
         }
     }
 }

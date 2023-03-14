@@ -1,0 +1,75 @@
+﻿<Page x:Class="ATMA.View.PageATMView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ATMA.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="PageATMView" FontFamily="Rubick" FontSize="30">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF526391" Offset="1"/>
+                <GradientStop Color="#FF321C6E" Offset="0.454"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Resource/logo.png" Margin="0,5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+        <Border Width="750" Height="400" BorderBrush="White" BorderThickness="2" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25,0,0,0" CornerRadius="10">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Resource/atM.png" Width="200" Height="300" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Vertical" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="{Binding id_ATM, StringFormat='ID: {0}'}" Foreground="White"/>
+                    <TextBlock Text="{Binding id_sector , StringFormat='Сектор: {0}'}" Margin="0,10" Foreground="White"/>
+                    <TextBlock Text="{Binding balance, StringFormat='Баланс: {0}'}" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="{Binding name_city, StringFormat='г.{0}'}" Foreground="White"/>
+                        <TextBlock Text="{Binding name_street, StringFormat=', ул.{0}'}" Foreground="White"/>
+                        <TextBlock Text="{Binding number_build, StringFormat=', д.{0}'}" Foreground="White"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Группа: " Foreground="White" VerticalAlignment="Center"/>
+                        <Button Content="{Binding id_group}" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" Height="30" x:Name="showGroup" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}" Click="showGroup_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <ListBox x:Name="listPerson" MinWidth="400" Height="620" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Width="570">
+                            <StackPanel Orientation="Horizontal" Margin="0,10">
+                                <Image Source="/Resource/people.jpg" Width="100" Height="100"/>
+                                <StackPanel Orientation="Vertical" Margin="10,0" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding id_person, StringFormat='ID: {0}'}"/>
+                                    <TextBlock Text="{Binding id_group, StringFormat='Группа: {0}'}"/>
+                                    <TextBlock Text="{Binding second_name, StringFormat='Фамилия: {0}'}"/>
+                                    <TextBlock Text="{Binding name_, StringFormat='Имя: {0}'}"/>
+                                    <TextBlock Text="{Binding patronymic, StringFormat='Отчество: {0}'}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <Button x:Name="back" Width="200" Height="30" Content="Назад" FontSize="15" Background="{x:Null}" BorderBrush="White" BorderThickness="2" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Click="back_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Page>

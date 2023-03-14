@@ -29,10 +29,8 @@ namespace ATMA.View
 
         private void listATM_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (listATM.SelectedItem != null)
-                MessageBox.Show("SELECTED");
+            NavigationService.Navigate(new PageATMView(Model.MainModel.InfoATM(listATM.SelectedItem)));
         }
-
         private void connect_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PageConnectionATM());
@@ -58,7 +56,27 @@ namespace ATMA.View
 
         private void sector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            listATM.ItemsSource = Model.MainModel.SearchConnection(search.Text + "%", sector.SelectedItem);
+        }
+
+        private void search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           listATM.ItemsSource = Model.MainModel.SearchConnection(search.Text + "%", sector.SelectedItem);
+        }
+
+        private void clean_Click(object sender, RoutedEventArgs e)
+        {
+            sector.SelectedItem = null;
+        }
+
+        private void cleanS_Click(object sender, RoutedEventArgs e)
+        {
+            search.Text = "";
+        }
+
+        private void goMap_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageMAP());
         }
     }
 }

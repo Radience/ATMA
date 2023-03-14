@@ -24,8 +24,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Image Source="/Resource/logo.png" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
-        <Button x:Name="goMap" Grid.Column="2" Width="50" Height="50" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Background="{x:Null}" BorderBrush="White">
+        <Image Source="/Resource/logo.png" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+        <Button x:Name="goMap" Grid.Column="2" Width="50" Height="50" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Background="{x:Null}" BorderBrush="White" Click="goMap_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -60,7 +60,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="connect" Width="200" Height="30" Content="Подключить" FontSize="15" Background="{x:Null}" BorderBrush="White" BorderThickness="2" Foreground="White" Click="connect_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -77,13 +77,24 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <ComboBox x:Name="sector" Width="170" Height="30" Margin="0,10,0,0" SelectionChanged="sector_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding id_sector}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="search" Width="150" Height="30" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="search_TextChanged" Background="{x:Null}" BorderBrush="White" Foreground="White"/>
+                <Button x:Name="cleanS" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="cleanS_Click">
+                    <Image Source="/Resource/refresh.png"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <ComboBox x:Name="sector" Width="150" VerticalAlignment="Center" Height="30" Text="1" SelectionChanged="sector_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding id_sector}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button x:Name="clean" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="clean_Click">
+                    <Image Source="/Resource/refresh.png"/>
+                </Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

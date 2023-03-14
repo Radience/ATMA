@@ -20,8 +20,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Image Source="/Resource/logo.png" Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
-        <Button x:Name="goMap" Width="50" Height="50" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Background="{x:Null}" BorderBrush="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Resource/logo.png" Margin="0,5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+        <Button x:Name="goMap" Click="goMap_Click" Grid.Column="2" Width="50" Height="50" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Background="{x:Null}" BorderBrush="White">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -29,11 +34,11 @@
             </Button.Resources>
             <Image Source="/Resource/map.png"/>
         </Button>
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ListBox x:Name="listATM" MouseDoubleClick="listATM_MouseDoubleClick" SelectionMode="Single" MinWidth="600" Height="600" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        
+                        <Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Width="570">
                             <StackPanel Orientation="Horizontal" Margin="0,10">
                                 <Image Source="/Resource/atM.png" Width="100" Height="100"/>
                                 <StackPanel Orientation="Vertical" Margin="10,0" VerticalAlignment="Center">
@@ -51,17 +56,37 @@
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-             
+                        </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <Button x:Name="back" Width="200" Height="30" Content="Назад" FontSize="15" Background="{x:Null}" BorderBrush="White" BorderThickness="2" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Margin="10" Click="back_Click">
+        <Button x:Name="back" Width="200" Height="30" Content="Назад" FontSize="15" Background="{x:Null}" BorderBrush="White" BorderThickness="2" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="10" Click="back_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="search" Width="150" Height="30" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="search_TextChanged" Background="{x:Null}" BorderBrush="White" Foreground="White"/>
+                <Button x:Name="cleanS" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="cleanS_Click">
+                    <Image Source="/Resource/refresh.png"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <ComboBox x:Name="sector" Width="150" VerticalAlignment="Center" Height="30" Text="1" SelectionChanged="sector_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding id_sector}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button x:Name="clean" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="clean_Click">
+                    <Image Source="/Resource/refresh.png"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
