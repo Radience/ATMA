@@ -1,0 +1,67 @@
+﻿<Page x:Class="ATMA.View.PageConnectionATM"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ATMA.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="PageConnectionATM" FontFamily="Rubick" FontSize="15">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF526391" Offset="1"/>
+                <GradientStop Color="#FF321C6E" Offset="0.454"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Resource/logo.png" Margin="0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+        <Button x:Name="goMap" Width="50" Height="50" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Background="{x:Null}" BorderBrush="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="/Resource/map.png"/>
+        </Button>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ListBox x:Name="listATM" MouseDoubleClick="listATM_MouseDoubleClick" SelectionMode="Single" MinWidth="600" Height="600" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        
+                            <StackPanel Orientation="Horizontal" Margin="0,10">
+                                <Image Source="/Resource/atM.png" Width="100" Height="100"/>
+                                <StackPanel Orientation="Vertical" Margin="10,0" VerticalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="ID: "/>
+                                        <TextBlock Text="{Binding id_ATM}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Сектор: "/>
+                                        <TextBlock Text="{Binding id_sector}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Баланс: "/>
+                                        <TextBlock Text="{Binding balance}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+             
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <Button x:Name="back" Width="200" Height="30" Content="Назад" FontSize="15" Background="{x:Null}" BorderBrush="White" BorderThickness="2" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Margin="10" Click="back_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Page>

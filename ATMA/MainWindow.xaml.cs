@@ -11,7 +11,7 @@ namespace ATMA
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new StartMenu());
+            MainFrame.Navigate(new PageATM());
         }
     }
 }
